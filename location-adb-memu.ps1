@@ -1,3 +1,4 @@
+$Instance = 0
 Do {
  
     Add-Type -AssemblyName System.Device
@@ -19,7 +20,7 @@ Do {
     $gpslocation.Longitude = $gpslocation.Longitude -replace '\,','.'
  
     $Command = "C:\Program Files\Microvirt\MEmu\memuc.exe"
-    $Parms = "-i 0 adb shell am startservice -e longitude $($gpslocation.Longitude) -e latitude $($gpslocation.Latitude) io.appium.settings/.LocationService;"
+    $Parms = "-i $($Instance) adb shell am startservice -e longitude $($gpslocation.Longitude) -e latitude $($gpslocation.Latitude) io.appium.settings/.LocationService;"
  
  
     $Prms = $Parms.Split(" ")
